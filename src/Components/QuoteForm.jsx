@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Button from "./Button";
 import Star from "../assets/Images/star.png";
+import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function QuoteForm() {
   const [formData, setFormData] = useState({
@@ -12,6 +14,39 @@ export default function QuoteForm() {
   });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
+  const [showCaptcha, setShowCaptcha] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaError, setCaptchaError] = useState("");
+  const [alert, setAlert] = useState({ show: false, type: "", message: "" });
+
+  const recaptchaRef = useRef(null);
+  const alertTimeoutRef = useRef(null);
+
+  const RECAPTCHA_SITE_KEY = "6LfyMU8sAAAAAMtpmB3cfhCn4iCsDrK-y_8-ysLj";
+
+  // Clear alert timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (alertTimeoutRef.current) {
+        clearTimeout(alertTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const showAlert = (type, message, autoHide = true) => {
+    // Clear any existing timeout
+    if (alertTimeoutRef.current) {
+      clearTimeout(alertTimeoutRef.current);
+    }
+
+    setAlert({ show: true, type, message });
+
+    if (autoHide) {
+      alertTimeoutRef.current = setTimeout(() => {
+        setAlert({ show: false, type: "", message: "" });
+      }, 5000);
+    }
+  };
 
   const validators = {
     name: (value) => {
@@ -40,7 +75,7 @@ export default function QuoteForm() {
     },
     description: (value) => {
       if (!value) return "Description is required";
-      const descRegex = /^(?=. {10,500}$)[\s\S]*$/;
+      const descRegex = /^[\s\S]{10,500}$/;
       if (!descRegex.test(value)) return "Describe your needs (min 10 chars)";
       return "";
     },
@@ -60,6 +95,26 @@ export default function QuoteForm() {
     const { name, value } = e.target;
     const next = { ...formData, [name]: value };
     setFormData(next);
+
+    // Hide alert when user starts typing again
+    if (alert.show) {
+      setAlert({ show: false, type: "", message: "" });
+      if (alertTimeoutRef.current) {
+        clearTimeout(alertTimeoutRef.current);
+      }
+    }
+
+    // Show captcha when description field has content
+    if (name === "description") {
+      if (value.trim().length > 0) {
+        setShowCaptcha(true);
+      } else {
+        setShowCaptcha(false);
+        // Clear any captcha error when description is cleared
+        setCaptchaError("");
+      }
+    }
+
     if (touched[name]) {
       setErrors((prev) => ({ ...prev, [name]: validators[name](value) }));
     }
@@ -74,8 +129,29 @@ export default function QuoteForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  // Reset captcha when description becomes empty
+  useEffect(() => {
+    if (formData.description.trim().length === 0 && showCaptcha) {
+      setShowCaptcha(false);
+      setCaptchaError("");
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
+    }
+  }, [formData.description, showCaptcha]);
+
+  const handleRecaptchaChange = (token) => {
+    if (token) {
+      setCaptchaError("");
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setCaptchaError("");
+
+    // Validate all form fields
     const nextErrors = validateAll(formData);
     setErrors(nextErrors);
     setTouched({
@@ -85,17 +161,102 @@ export default function QuoteForm() {
       service: true,
       description: true,
     });
+
+    // Check for form errors
     const hasError = Object.values(nextErrors).some((msg) => msg);
-    if (hasError) return;
-    alert("Thanks! Your request has been submitted.");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      description: "",
-    });
-    setTouched({});
+    if (hasError) {
+      setIsSubmitting(false);
+      showAlert(
+        "danger",
+        "Please fix the errors in the form before submitting.",
+        false,
+      );
+      return;
+    }
+
+    // If description has content, we need to verify captcha
+    if (showCaptcha) {
+      if (!recaptchaRef.current) {
+        setCaptchaError("reCAPTCHA not loaded. Please refresh the page.");
+        setIsSubmitting(false);
+        showAlert("danger", "reCAPTCHA not loaded. Please refresh the page.");
+        return;
+      }
+
+      const captchaValue = recaptchaRef.current.getValue();
+
+      if (!captchaValue) {
+        setCaptchaError(
+          "Please complete the reCAPTCHA verification before submitting.",
+        );
+        setIsSubmitting(false);
+        showAlert(
+          "danger",
+          "Please complete the reCAPTCHA verification before submitting.",
+          false,
+        );
+        return;
+      }
+    }
+
+    try {
+      // Send email
+      await emailjs.send(
+        "service_atcmru7",
+        "template_xjwh0fb",
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          description: formData.description,
+          submitted_at: new Date().toLocaleString(),
+          current_year: new Date().getFullYear(),
+          captcha_token: showCaptcha ? recaptchaRef.current.getValue() : "",
+        },
+        "1JhpDFWb4tZlLmkCh",
+      );
+
+      showAlert(
+        "success",
+        "Thanks! Your request has been submitted successfully.",
+      );
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        description: "",
+      });
+      setTouched({});
+      setErrors({});
+      setShowCaptcha(false);
+      setCaptchaError("");
+
+      // Reset captcha
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      showAlert("danger", "Failed to send message. Please try again.");
+
+      // Reset captcha on error
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const closeAlert = () => {
+    setAlert({ show: false, type: "", message: "" });
+    if (alertTimeoutRef.current) {
+      clearTimeout(alertTimeoutRef.current);
+    }
   };
 
   return (
@@ -107,9 +268,9 @@ export default function QuoteForm() {
           alt="Star"
           style={{ width: "30px", height: "30px" }}
         ></img>
-        LET’S WORK TOGETHER
+        LET'S WORK TOGETHER
       </h6>
-      <h2 className="fw-bold text-center text-md-start">Get A Free Quote</h2>
+      <h2 className="fw-bold text-center text-md-start">Contact Us</h2>
 
       <form className="mt-4" onSubmit={handleSubmit} noValidate>
         <div className="row g-3">
@@ -196,10 +357,43 @@ export default function QuoteForm() {
               <div className="text-danger small mt-1">{errors.description}</div>
             ) : null}
           </div>
+
+          {/* reCAPTCHA Section - Only shown when description has content */}
+          {showCaptcha && (
+            <div className="col-12">
+              <div className="mb-3">
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={RECAPTCHA_SITE_KEY}
+                  onChange={handleRecaptchaChange}
+                  theme="light"
+                  size="normal"
+                />
+                {captchaError && (
+                  <div className="text-danger small mt-1">{captchaError}</div>
+                )}
+              </div>
+            </div>
+          )}
+
           <div className="col-12">
             <div className="d-flex align-items-center gap-3 py-3">
-              <Button text="Submit" />
+              <Button
+                text={isSubmitting ? "Submitting..." : "Submit"}
+                type="submit"
+                disabled={isSubmitting}
+              />
             </div>
+
+            {/* Alert Message */}
+            {alert.show && (
+              <div
+                className={`alert alert-${alert.type} alert-dismissible fade show`}
+                role="alert"
+              >
+                {alert.message}
+              </div>
+            )}
           </div>
         </div>
       </form>

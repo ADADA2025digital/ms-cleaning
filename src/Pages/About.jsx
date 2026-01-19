@@ -115,7 +115,7 @@ export default function AboutPage() {
               </h2>
               <p className="text-muted py-2 text-center text-md-start">
                 MS Property Cleaning Services delivers reliable, eco-friendly
-                cleaning for homes, offices, and commercial spaces — ensuring
+                cleaning for homes, offices, and commercial spaces - ensuring
                 freshness and comfort every day.
               </p>
               <ul className="list-unstyled lh-2">
@@ -163,7 +163,7 @@ export default function AboutPage() {
                   </span>
                   <div className="text-start">
                     <p className="mb-1 small">Need Help? Call Us</p>
-                    <p className="mb-0 fw-bold">+0412 147 211</p>
+                    <p className="mb-0 fw-bold">0412 147 211</p>
                   </div>
                 </div>
               </div>

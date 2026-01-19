@@ -20,8 +20,7 @@ export default function Header() {
   // Social media links data
   const socialLinks = [
     { icon: "bi-facebook", href: "#" },
-    { icon: "bi-twitter", href: "#" },
-    { icon: "bi-linkedin", href: "#" },
+    { icon: "bi-instagram", href: "#" },
     { icon: "bi-youtube", href: "#" },
   ];
 
@@ -29,7 +28,7 @@ export default function Header() {
   const contactInfo = [
     {
       icon: "bi-telephone-fill",
-      text: "+0412 147 211",
+      text: "0412 147 211",
       href: "tel:0412147211",
     },
     {
@@ -148,13 +147,15 @@ export default function Header() {
             }}
           >
             <div className="container">
+              {/* Logo - LEFT */}
               <Link
                 className="navbar-brand d-flex align-items-center py-1"
                 to="/"
               >
-                <img src={Logo} alt="Logo" height={65} className="" />
+                <img src={Logo} alt="Logo" height={65} />
               </Link>
 
+              {/* Mobile toggle */}
               <button
                 className="navbar-toggler"
                 type="button"
@@ -165,15 +166,16 @@ export default function Header() {
                 <span className="navbar-toggler-icon"></span>
               </button>
 
-              <div
-                className="collapse navbar-collapse justify-content-center"
-                id="navbarNav"
-              >
-                <ul className="navbar-nav">
+              {/* Links - RIGHT */}
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav ms-auto">
                   {navigationItems.map((item, index) => (
-                    <li key={index} className="nav-item position-relative d-inline-block px-2 py-3">
+                    <li
+                      key={index}
+                      className="nav-item position-relative px-2 py-3"
+                    >
                       <Link
-                        className={`nav-link text-decoration-none ${
+                        className={`nav-link ${
                           item.hasActiveState && location.pathname === item.path
                             ? "active highlight"
                             : ""
@@ -186,12 +188,6 @@ export default function Header() {
                   ))}
                 </ul>
               </div>
-
-              <div className="d-none d-md-flex align-items-center gap-3 py-2">
-                <Link to="/quote">
-                  <Button text="Get A Quote" />
-                </Link>
-              </div>
             </div>
           </nav>
 
@@ -203,11 +199,7 @@ export default function Header() {
             aria-labelledby="offcanvasNavbarLabel"
           >
             <div className="offcanvas-header border-light border-bottom text-white">
-              <img
-                src={Logo}
-                alt="Logo"
-                height={40}
-              />
+              <img src={Logo} alt="Logo" height={40} />
               <button
                 type="button"
                 className="btn-close bg-white"
@@ -220,7 +212,7 @@ export default function Header() {
                 {navigationItems.map((item, index) => (
                   <li key={index} className="nav-item mb-3">
                     <Link
-                      className={`nav-link fw-bold ${
+                      className={`nav-link fw-bold fs-3 ${
                         item.hasActiveState && location.pathname === item.path
                           ? "active"
                           : ""
@@ -233,10 +225,13 @@ export default function Header() {
                   </li>
                 ))}
               </ul>
-              <div className="d-flex align-items-center gap-3 py-2">
-                <Link to="/" onClick={closeOffcanvas}>
-                  <Button text="Get A Quote" />
-                </Link>
+
+              <div className="d-flex gap-4">
+                {socialLinks.map((social, index) => (
+                  <a key={index} href={social.href} className="text-white fs-2">
+                    <i className={`bi ${social.icon}`}></i>
+                  </a>
+                ))}
               </div>
             </div>
           </div>

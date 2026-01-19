@@ -18,8 +18,8 @@ export default function Footer() {
 
   const socialLinks = [
     { href: "facebook.com", icon: "bi-facebook" },
-    { href: "twitter.com", icon: "bi-twitter" },
-    { href: "linkedin.com", icon: "bi-linkedin" },
+    { href: "twitter.com", icon: "bi-instagram" },
+    { href: "linkedin.com", icon: "bi-youtube" },
   ];
 
   const recentPosts = [
@@ -212,7 +212,7 @@ export default function Footer() {
 
           <div className="row py-3 align-items-center text-center text-md-start">
             <p className="mb-0 text-center small">
-              All rights reserved. 2025 &copy;{" "}
+              All rights reserved. {new Date().getFullYear()} &copy;{" "}
               <strong className="text-white">
                 MS Property Cleaning Service
               </strong>

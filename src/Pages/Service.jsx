@@ -80,7 +80,7 @@ export default function ServicesPage() {
         </section>
 
         {/* How It Works Section */}
-        <section style={{ background: "#f0f4fa" }}>
+        {/* <section style={{ background: "#f0f4fa" }}>
           <div className="container py-5">
             <div className="text-center">
               <motion.h6
@@ -157,10 +157,8 @@ export default function ServicesPage() {
                         <p className="para heading px-3">{step.description}</p>
                       </motion.div>
 
-                      {/* curved arrow only between steps */}
                       {index !== howItWorks.length - 1 && (
                         <>
-                          {/* Desktop arrow between steps */}
                           <img
                             src={arrow}
                             alt="arrow"
@@ -172,7 +170,6 @@ export default function ServicesPage() {
                               height: "auto",
                             }}
                           />
-                          {/* Mobile down arrow */}
                           <i className="bi bi-arrow-down fs-1 highlight d-md-none mt-3"></i>
                         </>
                       )}
@@ -182,7 +179,7 @@ export default function ServicesPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="py-5 overflow-x-hidden">
           {/* QUALITY ASSURANCE */}

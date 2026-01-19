@@ -51,14 +51,15 @@ export const heroContent = [
     backgroundImage: HeroImage2,
   },
   {
-    title: "Plumbing & Landscaping Maintenance",
-    heading: "More Than Cleaning - Complete Property Care.",
+    title: "Carpet & Upholstery Cleaning",
+    heading: "Deep Clean. Fresh Feel. Lasting Comfort.",
     description:
-      "From leak fixes to outdoor maintenance, our skilled team ensures your property stays functional, beautiful, and worry-free.",
+      "Restore the beauty of your carpets and furniture with deep-cleaning solutions that remove stains, dust, and allergens.",
     buttonText: "Get a Quote",
     backgroundImage: HeroImage3,
   },
 ];
+
 
 export const evolutionData = {
   subtitle: "From Mess to Masterpiece",
@@ -74,7 +75,7 @@ export const evolutionData = {
       icon: "bi-list-check",
       title: "Personalized Cleaning Plans",
       description:
-        "Tailored cleaning packages curated to match every property type — apartments, houses, and luxury homes.",
+        "Tailored cleaning packages curated to match every property type - apartments, houses, and luxury homes.",
     },
   ],
   rightFeatures: [
@@ -364,84 +365,84 @@ export const serviceslist = [
       { id: "win-4", title: "Rain policy?", content: "We reschedule during unsafe weather; no charge for weather delays." }
     ]
   },
-  {
-    id: 5,
-    name: "Plumbing Service",
-    icon: "bi-wrench",
-    image: Service5,
-    title: "Plumbing Maintenance for Properties",
-    description:
-      "Reliable plumbing care to maintain smooth water flow and prevent property damage in large or small facilities.",
-    features: [
-      "Leak Detection & Repair",
-      "Drain & Pipeline Cleaning",
-      "Preventive Maintenance",
-      "Emergency Response",
-    ],
-    details: [
-      "From minor leaks to urgent blockages, our technicians stabilize issues quickly and prevent water damage.",
-      "Preventive programs include descaling, pressure tests and fixture checks to keep facilities running smoothly."
-    ],
-    keyFactors: [
-      { title: "Diagnostics & Quote", icon: "bi-clipboard-check", description: "Thermal/pressure tests, camera inspection for drains if needed." },
-      { title: "Scheduling & Parts", icon: "bi-calendar-check", description: "We source compatible parts and plan downtime windows." },
-      { title: "Repair & Testing", icon: "bi-brush", description: "Repairs, reseals and flow tests; hygiene maintained throughout." },
-      { title: "Completion & Report", icon: "bi-check-circle", description: "Cause, fix and prevention notes with warranty details." }
-    ],
-    benefits: {
-      image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac",
-      items: ["Fewer breakdowns", "Faster response", "Clean, safe work areas", "Transparent pricing"]
-    },
-    outcomes: {
-      image: "https://images.unsplash.com/photo-1556911261-6bd341186b2f",
-      items: ["Dry, damage-free spaces", "Improved water efficiency", "Compliance with building standards", "Planned maintenance"]
-    },
-    faqs: [
-      { id: "plu-1", title: "Do you handle emergencies?", content: "Yes, priority hotline with rapid dispatch is available." },
-      { id: "plu-2", title: "What about warranties?", content: "Parts per OEM warranty; workmanship warranty included." },
-      { id: "plu-3", title: "Camera inspection available?", content: "We provide drain camera diagnostics for persistent issues." },
-      { id: "plu-4", title: "Can you work after hours?", content: "Yes—scheduled night work to reduce downtime." }
-    ]
-  },
-  {
-    id: 6,
-    name: "Landscaping",
-    icon: "bi-tree",
-    image: Service6,
-    title: "Landscaping & Outdoor Property Care",
-    description:
-      "Professional maintenance of gardens, outdoor areas, and shared spaces for a clean and aesthetically pleasing property.",
-    features: [
-      "Garden Upkeep",
-      "Lawn Maintenance",
-      "Outdoor Deep Cleaning",
-      "Seasonal Plant Care",
-    ],
-    details: [
-      "Enhance curb appeal with routine lawn care, pruning, hedge shaping and weed control. We also pressure-wash pavements and outdoor furniture.",
-      "Seasonal programs keep beds healthy with mulching, fertilizing and pest control using environment-conscious methods."
-    ],
-    keyFactors: [
-      { title: "Site Review & Plan", icon: "bi-clipboard-check", description: "Soil, shade and irrigation assessment; plant palette advice." },
-      { title: "Schedule & Prep", icon: "bi-calendar-check", description: "Weekly/fortnightly cycles; waste disposal plan included." },
-      { title: "Care & Cleaning", icon: "bi-brush", description: "Mowing, edging, pruning, leaf clearance and pressure wash." },
-      { title: "Handover & Tips", icon: "bi-check-circle", description: "Watering guide and seasonal recommendations." }
-    ],
-    benefits: {
-      image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac",
-      items: ["Healthy, neat greens", "Safer, cleaner walkways", "Eco-aware practices", "Consistent schedule"]
-    },
-    outcomes: {
-      image: "https://images.unsplash.com/photo-1556911261-6bd341186b2f",
-      items: ["Attractive common areas", "Better property value", "Resident satisfaction", "Year-round upkeep"]
-    },
-    faqs: [
-      { id: "lan-1", title: "Do you remove green waste?", content: "Yes, collection and disposal are part of the service." },
-      { id: "lan-2", title: "What about irrigation fixes?", content: "We repair timers, drips and sprinklers or coordinate specialists." },
-      { id: "lan-3", title: "Pet- and child-safe products?", content: "Yes—non-toxic options available on request." },
-      { id: "lan-4", title: "Can you do one-off makeovers?", content: "We offer seasonal cleanups and event-ready refreshes." }
-    ]
-  }
+  // {
+  //   id: 5,
+  //   name: "Plumbing Service",
+  //   icon: "bi-wrench",
+  //   image: Service5,
+  //   title: "Plumbing Maintenance for Properties",
+  //   description:
+  //     "Reliable plumbing care to maintain smooth water flow and prevent property damage in large or small facilities.",
+  //   features: [
+  //     "Leak Detection & Repair",
+  //     "Drain & Pipeline Cleaning",
+  //     "Preventive Maintenance",
+  //     "Emergency Response",
+  //   ],
+  //   details: [
+  //     "From minor leaks to urgent blockages, our technicians stabilize issues quickly and prevent water damage.",
+  //     "Preventive programs include descaling, pressure tests and fixture checks to keep facilities running smoothly."
+  //   ],
+  //   keyFactors: [
+  //     { title: "Diagnostics & Quote", icon: "bi-clipboard-check", description: "Thermal/pressure tests, camera inspection for drains if needed." },
+  //     { title: "Scheduling & Parts", icon: "bi-calendar-check", description: "We source compatible parts and plan downtime windows." },
+  //     { title: "Repair & Testing", icon: "bi-brush", description: "Repairs, reseals and flow tests; hygiene maintained throughout." },
+  //     { title: "Completion & Report", icon: "bi-check-circle", description: "Cause, fix and prevention notes with warranty details." }
+  //   ],
+  //   benefits: {
+  //     image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac",
+  //     items: ["Fewer breakdowns", "Faster response", "Clean, safe work areas", "Transparent pricing"]
+  //   },
+  //   outcomes: {
+  //     image: "https://images.unsplash.com/photo-1556911261-6bd341186b2f",
+  //     items: ["Dry, damage-free spaces", "Improved water efficiency", "Compliance with building standards", "Planned maintenance"]
+  //   },
+  //   faqs: [
+  //     { id: "plu-1", title: "Do you handle emergencies?", content: "Yes, priority hotline with rapid dispatch is available." },
+  //     { id: "plu-2", title: "What about warranties?", content: "Parts per OEM warranty; workmanship warranty included." },
+  //     { id: "plu-3", title: "Camera inspection available?", content: "We provide drain camera diagnostics for persistent issues." },
+  //     { id: "plu-4", title: "Can you work after hours?", content: "Yes—scheduled night work to reduce downtime." }
+  //   ]
+  // },
+  // {
+  //   id: 6,
+  //   name: "Landscaping",
+  //   icon: "bi-tree",
+  //   image: Service6,
+  //   title: "Landscaping & Outdoor Property Care",
+  //   description:
+  //     "Professional maintenance of gardens, outdoor areas, and shared spaces for a clean and aesthetically pleasing property.",
+  //   features: [
+  //     "Garden Upkeep",
+  //     "Lawn Maintenance",
+  //     "Outdoor Deep Cleaning",
+  //     "Seasonal Plant Care",
+  //   ],
+  //   details: [
+  //     "Enhance curb appeal with routine lawn care, pruning, hedge shaping and weed control. We also pressure-wash pavements and outdoor furniture.",
+  //     "Seasonal programs keep beds healthy with mulching, fertilizing and pest control using environment-conscious methods."
+  //   ],
+  //   keyFactors: [
+  //     { title: "Site Review & Plan", icon: "bi-clipboard-check", description: "Soil, shade and irrigation assessment; plant palette advice." },
+  //     { title: "Schedule & Prep", icon: "bi-calendar-check", description: "Weekly/fortnightly cycles; waste disposal plan included." },
+  //     { title: "Care & Cleaning", icon: "bi-brush", description: "Mowing, edging, pruning, leaf clearance and pressure wash." },
+  //     { title: "Handover & Tips", icon: "bi-check-circle", description: "Watering guide and seasonal recommendations." }
+  //   ],
+  //   benefits: {
+  //     image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac",
+  //     items: ["Healthy, neat greens", "Safer, cleaner walkways", "Eco-aware practices", "Consistent schedule"]
+  //   },
+  //   outcomes: {
+  //     image: "https://images.unsplash.com/photo-1556911261-6bd341186b2f",
+  //     items: ["Attractive common areas", "Better property value", "Resident satisfaction", "Year-round upkeep"]
+  //   },
+  //   faqs: [
+  //     { id: "lan-1", title: "Do you remove green waste?", content: "Yes, collection and disposal are part of the service." },
+  //     { id: "lan-2", title: "What about irrigation fixes?", content: "We repair timers, drips and sprinklers or coordinate specialists." },
+  //     { id: "lan-3", title: "Pet- and child-safe products?", content: "Yes—non-toxic options available on request." },
+  //     { id: "lan-4", title: "Can you do one-off makeovers?", content: "We offer seasonal cleanups and event-ready refreshes." }
+  //   ]
+  // }
 ];
 
 const seen = new Map();
@@ -481,20 +482,6 @@ export const servicesData = [
     description:
       "Crystal-clear window cleaning inside and out to improve brightness and curb appeal.",
     image: Service4,
-  },
-  {
-    id: 5,
-    title: "Plumbing Service",
-    description:
-      "Quick and reliable plumbing repairs and maintenance for homes and offices.",
-    image: Service5,
-  },
-  {
-    id: 6,
-    title: "Landscaping",
-    description:
-      "Beautiful garden maintenance and lawn care to keep your outdoor space looking its best.",
-    image: Service6,
   },
 ];
 

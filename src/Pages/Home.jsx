@@ -41,7 +41,7 @@ export default function Home() {
     return selectedCategory === "All"
       ? servicesData
       : servicesData.filter((service) =>
-          service.title.toLowerCase().includes(selectedCategory.toLowerCase())
+          service.title.toLowerCase().includes(selectedCategory.toLowerCase()),
         );
   }, [selectedCategory, servicesData]);
 
@@ -54,8 +54,6 @@ export default function Home() {
     "House",
     "Office",
     "Kitchen",
-    "Plumbing",
-    "Landscaping",
   ];
 
   const [isMobile, setIsMobile] = useState(false);
@@ -91,7 +89,7 @@ export default function Home() {
                 setActiveHeroBar(
                   activeHeroBar === 0
                     ? heroContent.length - 1
-                    : activeHeroBar - 1
+                    : activeHeroBar - 1,
                 )
               }
             >
@@ -196,7 +194,7 @@ export default function Home() {
 
                 <div className="circle-overlay d-flex align-items-center justify-content-center z-2 light-bg rounded-circle position-absolute">
                   {" "}
-                  <i class="bi bi-stars text-white fs-2"></i>{" "}
+                  <i className="bi bi-stars text-white fs-2"></i>{" "}
                 </div>
               </div>
             </div>
@@ -239,8 +237,7 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
                   MS Property Cleaning Service offers expert cleaning and
-                  maintenance for homes and offices, including kitchen, window,
-                  plumbing, and landscaping services - ensuring spotless,
+                  maintenance for homes and offices, including kitchen, window - ensuring spotless,
                   functional, and welcoming spaces.
                 </motion.p>
 
@@ -285,12 +282,12 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 0.6 }}
                 >
                   <div className="d-flex align-items-center gap-2">
-                    <img src={Logo} alt="CEO" width={200} />
-                    <div>
+                    <img src={Logo} alt="CEO" width={220} />
+                    {/* <div>
                       <span className="fw-bold">Sonam Jha</span>
                       <br />
                       <h6 className="para">Founder & CEO</h6>
-                    </div>
+                    </div> */}
                   </div>
                 </motion.div>
               </motion.div>
@@ -541,7 +538,7 @@ export default function Home() {
                   <div className="mb-5 position-relative d-flex align-items-center justify-content-center justify-content-md-start">
                     <div className="popup-video-wrapper position-relative">
                       <a
-                        href="https://youtu.be/bmWQqAKLgT4?si=-1g73vqyMFTxvXNz"
+                        href="/"
                         className="popup-video light-bg d-flex align-items-center justify-content-center rounded-circle position-relative z-2 overflow-visible cursor"
                       >
                         <i className="bi bi-play-fill fs-1 text-white"></i>
@@ -575,10 +572,10 @@ export default function Home() {
 
               <div className="col-md-6">
                 <p className="para text-center text-md-start">
-                  MS Property Cleaning Service offers expert residential,
-                  office, kitchen, window, plumbing, and landscaping solutions -
-                  delivering spotless, reliable, and professional property care
-                  every time.
+                  MS Property Cleaning Service provides expert residential,
+                  office, kitchen, and window cleaning services, ensuring
+                  spotless results, reliability, and professional property care
+                  every time
                 </p>
               </div>
             </div>
@@ -590,13 +587,13 @@ export default function Home() {
           <div className="container">
             {/* Tabs Section */}
             <div
-              className="row row-cols-2 row-cols-md-3 row-cols-lg-6 text-center shadow rounded-4 overflow-hidden position-relative"
+              className="row text-center shadow rounded-4 overflow-hidden position-relative"
               style={{ top: "-60px" }}
             >
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className={`col p-4 d-flex flex-column align-items-center justify-content-center 
+                  className={`col-md-3 p-4 d-flex flex-column align-items-center justify-content-center 
       ${
         activeService.id === service.id
           ? "light-bg text-white"
