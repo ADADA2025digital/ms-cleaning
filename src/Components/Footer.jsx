@@ -17,9 +17,8 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { href: "facebook.com", icon: "bi-facebook" },
-    { href: "twitter.com", icon: "bi-instagram" },
-    { href: "linkedin.com", icon: "bi-youtube" },
+    { href: "https://www.facebook.com/mspropertycleaningservice", icon: "bi-facebook" },
+    { href: "https://www.instagram.com/no1_mscleaningservices/", icon: "bi-instagram" },
   ];
 
   const recentPosts = [
@@ -123,7 +122,7 @@ export default function Footer() {
               </p>
               <div className="d-flex gap-4">
                 {socialLinks.map((s, idx) => (
-                  <a key={idx} href={s.href} className="text-white">
+                  <a key={idx} href={s.href} className="text-white" target="_blank">
                     <i className={`bi ${s.icon}`}></i>
                   </a>
                 ))}

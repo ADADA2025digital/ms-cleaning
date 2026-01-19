@@ -14,12 +14,73 @@ import qualityImg from "../assets/Images/3.jpeg";
 import { Link } from "react-router-dom";
 import arrow from "../assets/Images/arrow.png";
 import Star from "../assets/Images/star.png";
+import { Helmet } from "react-helmet-async";
 
 export default function ServicesPage() {
   const [yearly, setYearly] = useState(false);
 
   return (
     <>
+      <Helmet>
+        {/* Basic SEO */}
+        <title>
+          Services | MS Cleaning Services Australia | Commercial & Residential
+          Cleaning Experts
+        </title>
+        <meta
+          name="description"
+          content="MS Cleaning Services Australia provides reliable commercial, residential, office, strata, and end-of-lease cleaning solutions. Trusted professional cleaners delivering high-quality, affordable services across Australia."
+        />
+        <meta
+          name="keywords"
+          content="MS Cleaning Services, MS Cleaning Australia, professional cleaning services Australia, commercial cleaning Australia, residential cleaning Australia, office cleaning services, strata cleaning, end of lease cleaning, carpet cleaning Australia, deep cleaning services, reliable cleaners Australia, affordable cleaning services, local cleaning company Australia"
+        />
+        <meta name="author" content="MS Cleaning Services Australia" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://mscleaning.com.au/" />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="MS Cleaning Services Australia | Professional Cleaning Solutions"
+        />
+        <meta
+          property="og:description"
+          content="MS Cleaning Services Australia offers expert commercial and residential cleaning, including office, strata, end-of-lease, and deep cleaning. Quality service you can trust."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mscleaning.com.au/" />
+        <meta
+          property="og:site_name"
+          content="MS Cleaning Services Australia"
+        />
+
+        {/* Social Links */}
+        <meta
+          property="og:see_also"
+          content="https://www.instagram.com/no1_mscleaningservices/"
+        />
+        <meta
+          property="og:see_also"
+          content="https://www.facebook.com/mspropertycleaningservice"
+        />
+
+        {/* Facebook  */}
+        <meta property="fb:app_id" content="#" />
+        <meta
+          property="fb:admins"
+          content="https://www.facebook.com/mspropertycleaningservice"
+        />
+
+        {/* Instagram */}
+        <meta name="instagram:title" content="MS Cleaning Services Australia" />
+        <meta
+          name="instagram:description"
+          content="Professional commercial and residential cleaning services across Australia. Reliable, affordable, and high-quality cleaning solutions."
+        />
+        <meta name="instagram:site" content="@no1_mscleaningservices" />
+      </Helmet>
+
       <div className="container-fluid p-0">
         <PageBanner
           title="Services"

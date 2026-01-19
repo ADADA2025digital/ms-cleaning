@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import PageBanner from "../Components/PageBanner";
 import { services } from "../Constants/Data";
 import { toSlug } from "../utils/slugify";
+import { Helmet } from "react-helmet-async";
 
 export default function ServicesPage() {
   const { slug } = useParams();
@@ -70,6 +71,66 @@ export default function ServicesPage() {
 
   return (
     <>
+      <Helmet>
+        {/* Basic SEO */}
+        <title>
+          Services Details | MS Cleaning Services Australia | Commercial &
+          Residential Cleaning Experts
+        </title>
+        <meta
+          name="description"
+          content="MS Cleaning Services Australia provides reliable commercial, residential, office, strata, and end-of-lease cleaning solutions. Trusted professional cleaners delivering high-quality, affordable services across Australia."
+        />
+        <meta
+          name="keywords"
+          content="MS Cleaning Services, MS Cleaning Australia, professional cleaning services Australia, commercial cleaning Australia, residential cleaning Australia, office cleaning services, strata cleaning, end of lease cleaning, carpet cleaning Australia, deep cleaning services, reliable cleaners Australia, affordable cleaning services, local cleaning company Australia"
+        />
+        <meta name="author" content="MS Cleaning Services Australia" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://mscleaning.com.au/" />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="MS Cleaning Services Australia | Professional Cleaning Solutions"
+        />
+        <meta
+          property="og:description"
+          content="MS Cleaning Services Australia offers expert commercial and residential cleaning, including office, strata, end-of-lease, and deep cleaning. Quality service you can trust."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mscleaning.com.au/" />
+        <meta
+          property="og:site_name"
+          content="MS Cleaning Services Australia"
+        />
+
+        {/* Social Links */}
+        <meta
+          property="og:see_also"
+          content="https://www.instagram.com/no1_mscleaningservices/"
+        />
+        <meta
+          property="og:see_also"
+          content="https://www.facebook.com/mspropertycleaningservice"
+        />
+
+        {/* Facebook  */}
+        <meta property="fb:app_id" content="#" />
+        <meta
+          property="fb:admins"
+          content="https://www.facebook.com/mspropertycleaningservice"
+        />
+
+        {/* Instagram */}
+        <meta name="instagram:title" content="MS Cleaning Services Australia" />
+        <meta
+          name="instagram:description"
+          content="Professional commercial and residential cleaning services across Australia. Reliable, affordable, and high-quality cleaning solutions."
+        />
+        <meta name="instagram:site" content="@no1_mscleaningservices" />
+      </Helmet>
+
       <div className="container-fluid p-0">
         <PageBanner
           title="Service Details"
@@ -99,7 +160,10 @@ export default function ServicesPage() {
                     <div className="mb-4">
                       <div className="d-flex flex-wrap gap-2">
                         {features.map((f, i) => (
-                          <span key={i} className="badge bg-light text-muted border">
+                          <span
+                            key={i}
+                            className="badge bg-light text-muted border"
+                          >
                             {f}
                           </span>
                         ))}
@@ -122,11 +186,17 @@ export default function ServicesPage() {
                           <div className="col-md-6" key={idx}>
                             <div className="d-flex gap-3">
                               <div className="rounded-3 p-3">
-                                <i className={`bi ${factor.icon || "bi-star"} highlight fs-4`} />
+                                <i
+                                  className={`bi ${factor.icon || "bi-star"} highlight fs-4`}
+                                />
                               </div>
                               <div>
-                                <h3 className="h5 mb-2 heading">{factor.title}</h3>
-                                <p className="para mb-0">{factor.description}</p>
+                                <h3 className="h5 mb-2 heading">
+                                  {factor.title}
+                                </h3>
+                                <p className="para mb-0">
+                                  {factor.description}
+                                </p>
                               </div>
                             </div>
                           </div>
@@ -140,7 +210,10 @@ export default function ServicesPage() {
                       <div className="col-md-6">
                         <h2 className="brand mb-4">Benefits</h2>
                         {(benefits?.items ?? []).map((benefit, idx) => (
-                          <div className="d-flex align-items-start gap-3 mb-2" key={idx}>
+                          <div
+                            className="d-flex align-items-start gap-3 mb-2"
+                            key={idx}
+                          >
                             <i className="bi bi-check-circle highlight fs-5" />
                             <p className="text-muted mb-0 mt-1">{benefit}</p>
                           </div>
@@ -150,7 +223,10 @@ export default function ServicesPage() {
                       <div className="col-md-6">
                         <h2 className="brand mb-4">Expected Outcomes</h2>
                         {(outcomes?.items ?? []).map((outcome, idx) => (
-                          <div className="d-flex align-items-start gap-3 mb-2" key={idx}>
+                          <div
+                            className="d-flex align-items-start gap-3 mb-2"
+                            key={idx}
+                          >
                             <i className="bi bi-check-circle highlight fs-5" />
                             <p className="text-muted mb-0 mt-1">{outcome}</p>
                           </div>
@@ -164,7 +240,10 @@ export default function ServicesPage() {
                       <h2 className="brand mb-4">Frequently Asked Questions</h2>
                       <div className="custom-accordion pb-5">
                         {faqs.map((item) => (
-                          <div key={item.id} className="accordion-item rounded-3 mb-2 p-1">
+                          <div
+                            key={item.id}
+                            className="accordion-item rounded-3 mb-2 p-1"
+                          >
                             <h6
                               className="d-flex justify-content-start align-items-center gap-3"
                               onClick={() => toggleItem(item.id)}
@@ -201,7 +280,9 @@ export default function ServicesPage() {
                       className={`btn ${selectedService === idx ? "light-bg text-white" : "btn-light"} d-flex align-items-center gap-3 py-3 rounded-3`}
                       onClick={() => navigate(`/servicedetails/${svc.slug}`)}
                     >
-                      <i className={`${svc.icon} ${selectedService === idx ? "text-white" : "highlight"}`} />
+                      <i
+                        className={`${svc.icon} ${selectedService === idx ? "text-white" : "highlight"}`}
+                      />
                       <span className="fs-6 brand text-start">{svc.title}</span>
                     </button>
                   ))}
@@ -209,7 +290,10 @@ export default function ServicesPage() {
 
                 <div className="dark-bg text-white rounded-4 p-4 mb-4">
                   <div className="d-flex align-items-center gap-3">
-                    <div className="d-flex align-items-center justify-content-center light-bg rounded-circle p-3" style={{ width: 70, height: 70 }}>
+                    <div
+                      className="d-flex align-items-center justify-content-center light-bg rounded-circle p-3"
+                      style={{ width: 70, height: 70 }}
+                    >
                       <i className="bi bi-telephone text-white fs-4" />
                     </div>
                     <div>

@@ -13,15 +13,14 @@ export default function Header() {
     { path: "/", label: "Home", hasActiveState: true },
     { path: "/about", label: "About", hasActiveState: true },
     { path: "/services", label: "Service", hasActiveState: false },
-    { path: "/blogs", label: "Blogs", hasActiveState: false },
+    { path: "/", label: "Blogs", hasActiveState: false },
     { path: "/contact", label: "Contact", hasActiveState: true },
   ];
 
   // Social media links data
   const socialLinks = [
-    { icon: "bi-facebook", href: "#" },
-    { icon: "bi-instagram", href: "#" },
-    { icon: "bi-youtube", href: "#" },
+    { icon: "bi-facebook", href: "https://www.facebook.com/mspropertycleaningservice" },
+    { icon: "bi-instagram", href: "https://www.instagram.com/no1_mscleaningservices/" },
   ];
 
   // Contact info data
@@ -127,7 +126,7 @@ export default function Header() {
 
               <div className="d-flex gap-4">
                 {socialLinks.map((social, index) => (
-                  <a key={index} href={social.href} className="text-white">
+                  <a key={index} href={social.href} className="text-white" target="_blank">
                     <i className={`bi ${social.icon}`}></i>
                   </a>
                 ))}
@@ -228,7 +227,7 @@ export default function Header() {
 
               <div className="d-flex gap-4">
                 {socialLinks.map((social, index) => (
-                  <a key={index} href={social.href} className="text-white fs-2">
+                  <a key={index} href={social.href} className="text-white fs-2" target="_blank">
                     <i className={`bi ${social.icon}`}></i>
                   </a>
                 ))}

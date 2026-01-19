@@ -23,6 +23,7 @@ import Star from "../assets/Images/star.png";
 import aboutlarge from "../assets/Images/13.jpeg";
 import aboutsmall from "../assets/Images/2.jpeg";
 import MobileServicesCarousel from "../Components/MobileServicesCarousel";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   const [activeService, setActiveService] = useState(services[0] || {});
@@ -49,12 +50,7 @@ export default function Home() {
   const servicesToShow = filteredServices.slice(0, 8);
   const carouselId = "servicesCarousel";
 
-  const categories = [
-    "All",
-    "House",
-    "Office",
-    "Kitchen",
-  ];
+  const categories = ["All", "House", "Office", "Kitchen"];
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -69,6 +65,66 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        {/* Basic SEO */}
+        <title>
+          MS Cleaning Services Australia | Commercial & Residential Cleaning
+          Experts
+        </title>
+        <meta
+          name="description"
+          content="MS Cleaning Services Australia provides reliable commercial, residential, office, strata, and end-of-lease cleaning solutions. Trusted professional cleaners delivering high-quality, affordable services across Australia."
+        />
+        <meta
+          name="keywords"
+          content="MS Cleaning Services, MS Cleaning Australia, professional cleaning services Australia, commercial cleaning Australia, residential cleaning Australia, office cleaning services, strata cleaning, end of lease cleaning, carpet cleaning Australia, deep cleaning services, reliable cleaners Australia, affordable cleaning services, local cleaning company Australia"
+        />
+        <meta name="author" content="MS Cleaning Services Australia" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://mscleaning.com.au/" />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="MS Cleaning Services Australia | Professional Cleaning Solutions"
+        />
+        <meta
+          property="og:description"
+          content="MS Cleaning Services Australia offers expert commercial and residential cleaning, including office, strata, end-of-lease, and deep cleaning. Quality service you can trust."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mscleaning.com.au/" />
+        <meta
+          property="og:site_name"
+          content="MS Cleaning Services Australia"
+        />
+
+        {/* Social Links */}
+        <meta
+          property="og:see_also"
+          content="https://www.instagram.com/no1_mscleaningservices/"
+        />
+        <meta
+          property="og:see_also"
+          content="https://www.facebook.com/mspropertycleaningservice"
+        />
+
+        {/* Facebook  */}
+        <meta property="fb:app_id" content="#" />
+        <meta
+          property="fb:admins"
+          content="https://www.facebook.com/mspropertycleaningservice"
+        />
+
+        {/* Instagram */}
+        <meta name="instagram:title" content="MS Cleaning Services Australia" />
+        <meta
+          name="instagram:description"
+          content="Professional commercial and residential cleaning services across Australia. Reliable, affordable, and high-quality cleaning solutions."
+        />
+        <meta name="instagram:site" content="@no1_mscleaningservices" />
+      </Helmet>
+
       <div className="container-fluid p-0">
         {/* Hero Section */}
         <section
@@ -237,8 +293,8 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
                   MS Property Cleaning Service offers expert cleaning and
-                  maintenance for homes and offices, including kitchen, window - ensuring spotless,
-                  functional, and welcoming spaces.
+                  maintenance for homes and offices, including kitchen, window -
+                  ensuring spotless, functional, and welcoming spaces.
                 </motion.p>
 
                 <motion.div
