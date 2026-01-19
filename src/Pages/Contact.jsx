@@ -239,8 +239,8 @@ export default function ContactPage() {
           name: formValues.name,
           email: formValues.email,
           phone: formValues.phone,
-          subject: formValues.subject,
-          description: formValues.message, // Note: using 'description' to match template
+          service: formValues.subject || "General Inquiry", // Use subject as service, or default
+          description: formValues.message,
           submitted_at: new Date().toLocaleString(),
           current_year: new Date().getFullYear(),
           captcha_token: showCaptcha ? recaptchaRef.current.getValue() : "",
