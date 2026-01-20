@@ -50,7 +50,7 @@ export default function Home() {
   const servicesToShow = filteredServices.slice(0, 8);
   const carouselId = "servicesCarousel";
 
-  const categories = ["All", "House", "Office", "Kitchen"];
+  const categories = ["All", "House", "Office", "Kitchen", "Window", "Carpet"];
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -202,7 +202,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, delay: 0.4 }}
                 >
-                  <Link to="/about">
+                  <Link to="/services">
                     <Button text={heroContent[activeHeroBar].buttonText} />
                   </Link>
                 </motion.div>
@@ -643,19 +643,19 @@ export default function Home() {
           <div className="container">
             {/* Tabs Section */}
             <div
-              className="row text-center shadow rounded-4 overflow-hidden position-relative"
+              className="row row-cols-2 row-cols-md-3 row-cols-lg-5 text-center shadow rounded-4 overflow-hidden position-relative"
               style={{ top: "-60px" }}
             >
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className={`col-md-3 p-4 d-flex flex-column align-items-center justify-content-center 
-      ${
-        activeService.id === service.id
-          ? "light-bg text-white"
-          : "bg-white text-dark"
-      } 
-      border-end`}
+                  className={`col p-4 d-flex flex-column align-items-center justify-content-center
+        ${
+          activeService.id === service.id
+            ? "light-bg text-white"
+            : "bg-white text-dark"
+        }
+        border-end`}
                   style={{ cursor: "pointer", minHeight: "100px" }}
                   onClick={() => setActiveService(service)}
                 >

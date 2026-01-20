@@ -11,7 +11,7 @@ export default function Header() {
   // Navigation data
   const navigationItems = [
     { path: "/", label: "Home", hasActiveState: true },
-    { path: "/about", label: "About", hasActiveState: true },
+    { path: "/about-us", label: "About Us", hasActiveState: true },
     { path: "/services", label: "Service", hasActiveState: false },
     { path: "/", label: "Blogs", hasActiveState: false },
     { path: "/contact", label: "Contact", hasActiveState: true },

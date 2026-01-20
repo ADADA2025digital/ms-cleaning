@@ -4,11 +4,11 @@ import HeroImage2 from "../assets/Images/slider-2-2.jpg";
 import HeroImage3 from "../assets/Images/slider-2-3.jpg";
 import CenterLeft from "../assets/Images/11.jpeg";
 import CenterRight from "../assets/Images/12.jpeg";
-import Service1 from "../assets/Images/5.jpeg";
-import Service2 from "../assets/Images/6.jpeg";
-import Service3 from "../assets/Images/7.jpeg";
-import Service4 from "../assets/Images/8.jpeg";
-import Service5 from "../assets/Images/10.jpeg";
+import Service1 from "../assets/Images/19.jpeg";
+import Service2 from "../assets/Images/18.jpeg";
+import Service3 from "../assets/Images/17.jpeg";
+import Service4 from "../assets/Images/20.jpeg";
+import Service5 from "../assets/Images/16.jpeg";
 import Service6 from "../assets/Images/9.jpeg";
 
 import Client1 from "../assets/Images/client-6.png";
@@ -443,6 +443,97 @@ export const serviceslist = [
   //     { id: "lan-4", title: "Can you do one-off makeovers?", content: "We offer seasonal cleanups and event-ready refreshes." }
   //   ]
   // }
+  {
+  id: 5,
+  name: "Carpet",
+  icon: "bi-layers",
+  image: Service5,
+  title: "Professional Carpet & Upholstery Cleaning",
+  description:
+    "Deep carpet and fabric cleaning solutions to remove stains, odors, allergens, and extend the life of your flooring and upholstery.",
+  features: [
+    "Deep Carpet Shampooing",
+    "Stain & Odor Removal",
+    "Hot Water Extraction",
+    "Fabric-Safe Cleaning",
+  ],
+  details: [
+    "Carpets and upholstered furniture trap dust, allergens, and bacteria over time. Our professional carpet cleaning service restores freshness and hygiene using industry-grade equipment.",
+    "We treat residential and commercial carpets, rugs, sofas, chairs, and office upholstery with fabric-safe methods tailored to material type and usage level."
+  ],
+  keyFactors: [
+    {
+      title: "Inspection & Fabric Assessment",
+      icon: "bi-clipboard-check",
+      description:
+        "We identify carpet type, stains, traffic areas, and cleaning method before starting."
+    },
+    {
+      title: "Pre-Treatment & Conditioning",
+      icon: "bi-calendar-check",
+      description:
+        "Targeted pre-spray for stains and high-traffic zones to loosen dirt and oils."
+    },
+    {
+      title: "Deep Cleaning Process",
+      icon: "bi-brush",
+      description:
+        "Hot water extraction or low-moisture cleaning ensures deep soil removal without damage."
+    },
+    {
+      title: "Drying & Final Check",
+      icon: "bi-check-circle",
+      description:
+        "Fast drying with ventilation support; final inspection ensures uniform cleanliness."
+    }
+  ],
+  benefits: {
+    image:
+      "https://images.unsplash.com/photo-1581578731548-c64695cc6952",
+    items: [
+      "Removes deep-seated dirt & allergens",
+      "Improves indoor air quality",
+      "Extends carpet & fabric life",
+      "Safe for kids and pets"
+    ]
+  },
+  outcomes: {
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    items: [
+      "Fresh, odor-free carpets",
+      "Visible stain reduction",
+      "Healthier living & workspaces",
+      "Cost savings vs replacement"
+    ]
+  },
+  faqs: [
+    {
+      id: "car-1",
+      title: "How long does drying take?",
+      content:
+        "Typically 4–6 hours depending on ventilation, humidity, and carpet thickness."
+    },
+    {
+      id: "car-2",
+      title: "Can you remove tough stains?",
+      content:
+        "We significantly reduce most stains. Some permanent stains may not fully disappear."
+    },
+    {
+      id: "car-3",
+      title: "Is it safe for pets and children?",
+      content:
+        "Yes. We use low-toxicity, fabric-safe, and eco-friendly cleaning solutions."
+    },
+    {
+      id: "car-4",
+      title: "How often should carpets be cleaned?",
+      content:
+        "Every 6–12 months for homes; 3–6 months for offices or high-traffic areas."
+    }
+  ]
+}
 ];
 
 const seen = new Map();
@@ -482,6 +573,13 @@ export const servicesData = [
     description:
       "Crystal-clear window cleaning inside and out to improve brightness and curb appeal.",
     image: Service4,
+  },
+  {
+    id: 5,
+    title: "Carpet Cleaning",
+    description:
+      "Deep carpet cleaning to remove stains, dust, and allergens, restoring freshness and extending carpet life.",
+    image: Service5,
   },
 ];
 

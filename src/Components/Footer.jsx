@@ -17,8 +17,14 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { href: "https://www.facebook.com/mspropertycleaningservice", icon: "bi-facebook" },
-    { href: "https://www.instagram.com/no1_mscleaningservices/", icon: "bi-instagram" },
+    {
+      href: "https://www.facebook.com/mspropertycleaningservice",
+      icon: "bi-facebook",
+    },
+    {
+      href: "https://www.instagram.com/no1_mscleaningservices/",
+      icon: "bi-instagram",
+    },
   ];
 
   const recentPosts = [
@@ -99,9 +105,17 @@ export default function Footer() {
             <div className="col-lg-3 d-flex flex-column align-items-center align-items-md-start ">
               <img src={Logo} alt="Logo" height={65} className="mb-3" />
               <p className="pt-2 cursor small">
-                <i className="bi bi-geo-alt-fill me-2"></i> 26 Spearwood Rise,
-                Cranbourne West VIC 3977
+                <i className="bi bi-geo-alt-fill me-2"></i>
+                <a
+                  href="https://maps.app.goo.gl/Q9RaF2idVruUsUuq9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none"
+                >
+                  26 Spearwood Rise, Cranbourne West VIC 3977
+                </a>
               </p>
+
               <p className="cursor small">
                 <i className="bi bi-envelope me-2"></i>
                 <a
@@ -122,7 +136,12 @@ export default function Footer() {
               </p>
               <div className="d-flex gap-4">
                 {socialLinks.map((s, idx) => (
-                  <a key={idx} href={s.href} className="text-white" target="_blank">
+                  <a
+                    key={idx}
+                    href={s.href}
+                    className="text-white"
+                    target="_blank"
+                  >
                     <i className={`bi ${s.icon}`}></i>
                   </a>
                 ))}
@@ -134,7 +153,10 @@ export default function Footer() {
               <h5 className="fw-bold my-3 text-white">Service Links</h5>
               <ul className="list-unstyled footer-links lh-lg">
                 {serviceLinks.map((link, idx) => (
-                  <li key={idx} className="d-flex justify-content-center justify-content-md-start">
+                  <li
+                    key={idx}
+                    className="d-flex justify-content-center justify-content-md-start"
+                  >
                     <i className="bi bi-chevron-right small"></i>
                     <a
                       href={link.href}
