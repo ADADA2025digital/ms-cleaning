@@ -202,8 +202,8 @@ export default function QuoteForm() {
     try {
       // Send email
       await emailjs.send(
-        "service_atcmru7",
-        "template_xjwh0fb",
+        "service_1k3llvm",
+        "template_hbf83qj",
         {
           name: formData.name,
           email: formData.email,
@@ -214,7 +214,7 @@ export default function QuoteForm() {
           current_year: new Date().getFullYear(),
           captcha_token: showCaptcha ? recaptchaRef.current.getValue() : "",
         },
-        "1JhpDFWb4tZlLmkCh",
+        "9PGdr4EeueSmmzhjh",
       );
 
       showAlert(

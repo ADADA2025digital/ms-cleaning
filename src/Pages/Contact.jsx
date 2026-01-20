@@ -39,9 +39,9 @@ export default function ContactPage() {
   const alertTimeoutRef = useRef(null);
 
   // EmailJS configuration
-  const EMAILJS_SERVICE_ID = "service_atcmru7"; // Your EmailJS service ID
-  const EMAILJS_TEMPLATE_ID = "template_xjwh0fb"; // Your EmailJS template ID
-  const EMAILJS_PUBLIC_KEY = "1JhpDFWb4tZlLmkCh"; // Your EmailJS public key
+  const EMAILJS_SERVICE_ID = "service_1k3llvm"; // Your EmailJS service ID
+  const EMAILJS_TEMPLATE_ID = "template_hbf83qj"; // Your EmailJS template ID
+  const EMAILJS_PUBLIC_KEY = "9PGdr4EeueSmmzhjh"; // Your EmailJS public key
   const RECAPTCHA_SITE_KEY = "6LfyMU8sAAAAAMtpmB3cfhCn4iCsDrK-y_8-ysLj";
 
   // Clear alert timeout on unmount
